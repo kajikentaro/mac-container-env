@@ -1,7 +1,12 @@
 build:
-	container build --arch arm64 -t debian-bookworm .
+	container build --arch arm64 -t debian-with-systemd .
 
 run:
-	container run --rm -it --volume "$$HOME/work:/home/aaa/work" debian-bookworm
+	container machine create debian-with-systemd --name work
 
+logs:
+	container machine logs work
+
+rm:
+	container machine stop work; container machine rm work
 
