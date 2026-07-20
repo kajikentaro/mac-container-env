@@ -7,6 +7,8 @@ run:
 logs:
 	container machine logs work
 
+exec:
+	container machine run --name work
+
 rm:
 	container machine stop work; container machine rm work
-
